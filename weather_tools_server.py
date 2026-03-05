@@ -33,7 +33,6 @@ def _simple_weather_for_city(city: str) -> dict:
 @mcp.tool()
 def get_weather(city: str) -> dict:
     return _simple_weather_for_city(city)
-
-if __name__ == "__main__":
-    # STDIO transport by default (best for local labs and desktop MCP clients)
-    mcp.run()
+    
+# FastMCP ASGI app (this is what Uvicorn will serve)
+app = mcp.http_app()
